@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{%  block nav %}
+    {% if request.user.is_authenticated %}
+
+    {% endif %}
+{%  endblock %}
+{% block content %}
+<body>
+    <h2>{{ doings.summary }}</h2>
+    <p><b>Descriprion:</b> {{ doings.description }}</p>
+    <p><b>Status:</b> {{ doings.status }}</p>
+    <p><b>Types:</b> {% for type in doings.type.all %}{{ type }}{% if not forloop.last %} , {% endif %}{% endfor %}</p>
+    <p><b>Created:</b> {{ doings.create }}</p>
+    <p><b>Updated:</b> {{ doings.update }}</p>
+
+</body>
+
+{% endblock %}
